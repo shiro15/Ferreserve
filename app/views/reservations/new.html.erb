@@ -1,0 +1,71 @@
+<% @page_title = "新規予約" %>
+<p><%= @page_title %></p>
+
+  		<table class="table table-bordered"><caption>選択便情報</caption>
+  			<tr>
+  				<th class="active">乗船日：<td></td></th>
+  				<th class="active">出発：<td></td></th>
+  				<th class="active">到着：<td></td></th>
+  			</tr>
+  			<tr>
+  				<th class="active">区間：<td></td></th>
+  				<th class="active">船名：<td></td></th>
+          <th class="active">客室：<td></td></th>
+  			</tr>
+  		</table>
+
+  		<table class="table table-bordered""><caption>お客様情報</caption>
+  			<tr>
+  				<th class="active">氏名：<td><%= current_user.name %></td></th>
+  				<th class="active">住所：<td><%= current_user.address%></td></th>
+  				<th class="active">メールアドレス：<td><%= current_user.mail %></td></th>
+  			</tr>
+  		</table>
+
+
+
+
+<%= form_tag :reservations do %>
+
+
+
+  			<table class="table table-bordered"><caption>ご予約内容入力</caption>
+  				<tr>
+  					<th class="active">ご利用人数：
+  						<td>
+                			<%= number_field_tag(:people_num, 1, :max => 10, :min => 1) %>
+  							うち小人<%= number_field_tag(:kids_num, 0, :max => 10, :min => 0) %>
+  						</td>
+  					</th>
+  				</tr>
+  				<tr>
+  					<th class="active">食事のご利用：
+  						<td>
+  							<%= check_box_tag(:meal, 0) %>
+  						</td>
+  					</th>
+  				</tr>
+  				<tr>
+  					<th class="active">車の積載：
+  						<td>
+  							<%= check_box_tag(:car, 0) %>
+  						</td>
+  					</th>
+  				</tr>
+  				<tr>
+  					<th class="active">客室のご利用：
+  						<td>
+  							<%= check_box_tag(:room_num, 0) %>
+  						</td>
+  					</th>
+  				</tr>
+  			</table>
+        </div>
+
+        <center>
+            <%= link_to "前のページに戻る", :back, :class => "btn btn-default" %>
+  			<%= submit_tag "予約を確定する", :class => "btn btn-default" %>
+  		</center>
+ </div>
+
+<% end %>

@@ -1,0 +1,24 @@
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+    </div>
+
+    <div id="gnavi" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li><%= link_to "トップページ", root_path %></li>
+            <li><%= link_to "前のページに戻る", :back %></li>
+        </ul>
+    </div>
+</nav>
+
+<div align="center">
+
+    <%= image_tag("logo.png", size: "400x56", alt: "Ferreserve")%>
+
+    <h1><%= @page_title %></h1>
+
+</div>

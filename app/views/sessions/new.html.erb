@@ -1,0 +1,34 @@
+<% @page_title = "ログイン" %>
+
+<div class="well" style="width: 400px; margin-right: auto; margin-left: auto;">
+
+  <% if flash.alert %>
+  <div class="alert alert-danger" align="center">
+    <%= flash.alert %>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+
+      <%= form_for(:session, url: login_path) do |f| %>
+
+      <label>メールアドレス</label>
+      <%= f.email_field :mail, class: 'form-control' %>
+
+      <label>パスワード</label>
+      <%= f.password_field :pass, class: 'form-control' %>
+
+      <div class="col-xs-3 col-xs-offset-3" style="margin-top: 15px;">
+        <%= f.submit "ログイン", class: "btn btn-default" %>
+      </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<center>
+  <p><%= link_to "新規登録はこちら", sign_up_path %></p>
+</center>

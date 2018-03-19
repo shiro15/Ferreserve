@@ -1,0 +1,35 @@
+<% @page_title = "便の詳細" %>
+<p><%= @page_title %></p>
+
+<table class="table">
+  <tr>
+    <th>便番号</th>
+    <td><%= @service.id %></td>
+  </tr>
+  <tr>
+    <th>船名</th>
+    <td><%= @service.ship.ship_name %></td>
+  </tr>
+  <tr>
+    <th>出発地</th>
+    <td><%= @service.route.start_place %></td>
+  </tr>
+  <tr>
+    <th>到着地</th>
+    <td><%= @service.route.goal_place %></td>
+  </tr>
+  <tr>
+    <th>出発日時</th>
+    <td><%= @service.start_date %></td>
+  </tr>
+  <tr>
+    <th>到着日時</th>
+    <td><%= @service.start_date + Rational(@service.route.time * 60) %></td>
+  </tr>
+</table>
+
+<% if current_user %>
+  <center><%= link_to "この便を予約する", {controller: "reservations", action: "new", service_id: @service.id}, :class => "btn btn-default" %></center>
+<% else %>
+  <center>予約をするにはログインしてください。</center>
+<% end %>

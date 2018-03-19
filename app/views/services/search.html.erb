@@ -1,0 +1,38 @@
+<% @page_title = "検索結果" %>
+<p><%= @page_title %></p>
+
+<% if @services.present? %>
+<table class="table table-hover">
+  <thead>
+  <tr bgcolor="#cff">
+            <th>便</th>
+            <th>船名</th>
+            <th>出発地</th>
+            <th>出発日時</th>
+            <th>残り定員</th>
+            <th>残り車輌</th>
+            <th>残り客室</th>
+            <th>便の詳細</th>
+  </tr>
+  </thead>
+
+
+  <% @services.each do |s| %>
+  <tbody>
+  <tr>
+    <td><%= s.id %></td>
+    <td><%= s.ship.ship_name %></td>
+    <td><%= s.route.start_place %></td>
+    <td><%= s.start_date %></td>
+    <td><%= s.passenger_num %></td>
+    <td><%= s.car_num %></td>
+    <td><%= s.taken_room %></td>
+    <td><%= link_to "詳細", service_path(s) %></td>
+  </tr>
+  </tbody>
+  <% end %>
+</table>
+
+<% else %>
+<p>検索結果がありません。</p>
+<% end %>

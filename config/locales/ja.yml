@@ -1,0 +1,36 @@
+ja:
+  activerecord:
+    models:
+      user: 会員
+      ship: 船
+      service: 便
+      reservation: 予約
+      route: 航路
+    attributes:
+      user:
+        name: 氏名
+        address: 住所
+        mail: メールアドレス
+        pass: パスワード
+        administrator: 管理者
+      ship:
+        name: 船の名前
+        seat_cap: 定員
+        car_cap: 積載可能車輌数
+        room_cap: 客室数
+        fare: 基本料金
+      service:
+        start_date: 出港日時
+        passenger_num: 残り乗船可能人数
+        taken_room: 残り利用可能客室数
+      reservation:
+        people_num: 予約人数
+        kids_num: 小人の人数
+        meal: 食事の有無
+        car: 積載車輌の有無
+        room_num: 予約客室数
+        total: 合計金額
+      route:
+        start_place: 出発地
+        goal_place: 目的地
+        time: 所要時間

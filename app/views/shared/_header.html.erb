@@ -1,0 +1,30 @@
+<%= link_to image_tag("logo.png", size: "300x42", alt: "Ferreserve"), root_path %>
+
+<p class="text-right">
+<% if current_user %>
+	<%= link_to current_user.name + "さん", :account %> | 
+	<%= link_to "ログアウト", :session, method: :delete, data: { confirm: "ログアウトしますか？" } %>
+<% else %>
+	<%= link_to "ログイン", :login %> | <%= link_to "新規登録", :sign_up %>
+<% end %>
+</p>
+
+<nav class="navbar navbar-default">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+
+	<div id="gnavi" class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li><%= link_to "船舶", :ships %></li>
+			<li><%= link_to "時刻表", :services %></li>
+			<li><%= link_to "料金", :charge %></li>
+			<li><%= link_to "検索", :search %></li>
+		</ul>
+	</div>
+</nav>
